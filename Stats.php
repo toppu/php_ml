@@ -10,6 +10,22 @@
 class Stats {
 
   /**
+   * Return the distribution function for the normal distribution
+   * with mean equal to mean and standard deviation equal to sd.
+   *
+   * @param float $x The value that you wants the distribution
+   * @param float $mean The distribution mean (default is zero).
+   * @param float $sd The distribution standard deviation (default is one).
+   *
+   * @return float
+   *
+   *
+   */
+  function dnorm($x, $mean=0, $sd=1) {
+    return (1 / sqrt(2 * pi())) * exp(-0.5 * pow($x, 2));
+  }
+
+  /**
    * Compute the mean, a calculated "central" value of a set of numbers.
    *
    * @param array $x List of numbers.
@@ -149,7 +165,7 @@ class Stats {
 
     foreach ($x as $k=>$v) {
       if($var) {
-        $x[$k] = ($v-$this->mean($x)) / $this->sd($x);
+        $x[$k] = ($v - $this->mean($x)) / $this->sd($x);
       } else {
         $x[$k] = $v - 0.5 * (min($x) + max($x));
       }
@@ -158,6 +174,44 @@ class Stats {
     return $x;
   }
 
+  /**
+   * Compute the skewness of a distribution.
+   * Skewness characterizes the degree of asymmetry of a distribution around its mean.
+   *
+   * @param array $x List of number.
+   * @return float The skewness of a distribution
+   */
+  function skew($x) {
+    $n = count($x);
+    $skew = 0;
+
+    foreach ($x as $v) {
+      $skew += pow(($v - $this->mean($x)) / $this->sd($x), 3);
+    }
+
+    $skew = ($skew*$n) / (($n - 1) * ($n - 2));
+
+    return $skew;
+  }
+
+  /**
+   * @param array $x List of number
+   * @return float The Kurtosis of a distribution
+   */
+  function kurt($x) {
+    $n = count($x);
+    $kurt = 0;
+
+    foreach ($x as $value) {
+      $kurt += pow(($value - $this->mean($x)) / $this->sd($x), 4);
+    }
+
+    $kurt = ($kurt * $n * ($n + 1)) / (($n - 1) * ($n - 2) * ($n - 3));
+    $kurt = $kurt - ((3 * ($n - 1) * ($n - 1)) / (($n - 2) * ($n - 3)));
+
+    return $kurt;
+
+  }
 
 }
 
