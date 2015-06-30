@@ -1,14 +1,15 @@
 # php_ml
-Provides methods for statistical calculations. php_ml includes the followings:
+php_ml includes the followings:
 
-1. [Basic calculations] (#basic-calculations)
+1. [Basic Stats] (#basic-calculations)
 2. [Analysis] (#analysis)
 3. [Correlation and Regression] (#correlation-and-regression)
 4. [Distributions] (#distributions)
 5. [Clustering] (#clustering)
 6. [Matrix] (#matrix)
 
-## Basic calculations
+## Basic Stats
+
 * `mean($x, $type="arithmetic")` - Compute the mean, a calculated "central" value of a set of numbers. `$type` The mean type [arithmetic|geometric|harmonic], `default` is arithmetic.
 * `mode($x)` - Compute the mode, the number which appears most often in a set of numbers.
 * `median($x)` - Compute the median, the middle number in a sorted list of numbers. If there are two middle numbers, average them.
@@ -17,3 +18,7 @@ Provides methods for statistical calculations. php_ml includes the followings:
 * `standardize($x, $var=TRUE)` - Perform standardize transformation, variables are commonly standardized to zero mean and unit variance, and this will usually be necessary if they are measured in different units. `$var` Standardize variance to be one, default is `TRUE`.
 * `skew($x)` - Compute the skewness of a distribution. Skewness characterizes the degree of asymmetry of a distribution around its mean.
 * `kurt($x)` - Compute the Kurtosis of a distribution. Kurtosis characterizes the relative peakedness or flatness of a distribution compared with the normal distribution.
+
+## Analysis
+* `moving_average($x, $window=5)` - The unweighted mean of the previous n data. Simple moving average is available at the moment.
+* `t_test($x, $y, $paired=FALSE)` - The statistical hypothesis test in which the test statistic follows a Student's t-distribution.
