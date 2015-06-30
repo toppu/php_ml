@@ -3,10 +3,11 @@ php_ml includes the followings:
 
 1. [Basic Stats] (#basic-calculations)
 2. [Analysis] (#analysis)
-3. [Correlation and Regression] (#correlation-and-regression)
-4. [Distributions] (#distributions)
-5. [Clustering] (#clustering)
-6. [Matrix] (#matrix)
+3. [Correlation] (#correlation)
+4. [Regression] (#regression)
+5. [Distributions] (#distributions) `to be implemented`
+6. [Clustering] (#clustering) `to be implemented`
+7. [Matrix] (#matrix) `to be implemented`
 
 ## Basic Stats
 
@@ -22,3 +23,10 @@ php_ml includes the followings:
 ## Analysis
 * `moving_average($x, $window=5)` - The unweighted mean of the previous n data. Simple moving average is available at the moment.
 * `t_test($x, $y, $paired=FALSE)` - The statistical hypothesis test in which the test statistic follows a Student's t-distribution.
+
+## Correlation
+* `cov($x, $y)` - Compute the covariance, the average of the products of deviations for each data point pair.
+* `cor($x, $y)` - Compute the correlation coefficient. Use the correlation coefficient to determine the relationship between two properties.
+
+## Regression
+* `lm($y, $x1, $x2=null, $origin=false)` - Compute the simple linear regression fits a linear model to represent the relationship between a response (or y-) variate, and an explanatory (or x-) variate. 
