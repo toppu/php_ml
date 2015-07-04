@@ -10,22 +10,6 @@
 class Stats {
 
   /**
-   * Return the distribution function for the normal distribution
-   * with mean equal to mean and standard deviation equal to sd.
-   *
-   * @param float $x The value that you wants the distribution
-   * @param float $mean The distribution mean (default is zero).
-   * @param float $sd The distribution standard deviation (default is one).
-   *
-   * @return float
-   *
-   *
-   */
-  function dnorm($x, $mean=0, $sd=1) {
-    return (1 / sqrt(2 * pi())) * exp(-0.5 * pow($x, 2));
-  }
-
-  /**
    * Compute the mean, a calculated "central" value of a set of numbers.
    *
    * @param array $x List of numbers.
